@@ -1,0 +1,36 @@
+package utils;
+import java.io.File;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class LoggerHandler {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoggerHandler.class);
+
+    static {
+        File logDir = new File("logs");
+        if (!logDir.exists()) {
+            logDir.mkdirs();
+        }
+    }
+
+    public static void info(String message) {
+        logger.info(message);
+    }
+
+    public static void warn(String message) {
+        logger.warn(message);
+    }
+
+    public static void error(String message) {
+        logger.error(message);
+    }
+
+    public static void fatal(String message) {
+        logger.error("FATAL: " + message);
+    }
+
+    public static void debug(String message) {
+        logger.debug(message);
+    }
+}
